@@ -11,7 +11,7 @@ apt-get -y install ansible
 CWD="$(pwd)"
 echo $CWD
 
-cp -a /vagrant/examples/* /home/vagrant
+cp -a /vagrant/playbooks/* /home/vagrant
 chown -R vagrant:vagrant /home/vagrant
 
 # configure hosts file for our internal network defined by Vagrantfile

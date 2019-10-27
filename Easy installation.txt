@@ -1,0 +1,32 @@
+
+Please follow
+
+Step 0 Gte code
+	git clone https://github.com/michaelJava69/ansible-automation.git
+	cd ansible-automation
+
+Step1 Vagrant up
+ 	i.  	vagrant up		:5mins
+ 	ii.    	vagrant ssh mgmt	
+ 	
+Step2 Create pub/private keys
+	i. 	ssh-keygen
+		press return x3
+	ii. 	./set-knownhost.sh                      # add list of server alias to knowhost on mgmt server
+	iii. 	ansible-playbook -i hosts ssh-addkey.yml  --ask-pass
+	iv.     password = vagrant
+	
+step 3  Bring up site
+	i. 	ansible-playbook -i hosts site.yml
+	ii.     http://localhost:8080/haproxy?stats	# Shows the stats brought back by haproxy
+		http://localhost:8080    		# shows the web page being load balanced
+	
+	
+	
+Note
+=====
+sshkey encryption does not work with bionic64  [it works with trusty64] : : Looking into this
+Increase number of websites
+	I. alter hosts
+	ii. update vagrant file web loop
+	ii. update set-knownhost.sh
